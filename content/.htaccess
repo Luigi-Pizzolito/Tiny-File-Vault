@@ -1,0 +1,9 @@
+### Normal Users Shouldn't Have Access To Normal Encrypted Files
+
+RewriteEngine on
+RewriteRule ^$ - [F]
+AuthName "Vault"
+# INSERT ABSOLUTE PATH TO .htpasswd BELOW
+AuthUserFile /home/luigipizzolito/luigipizzolito.com/vault/.htpasswd
+AuthType Basic
+Require valid-user

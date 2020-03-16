@@ -1,0 +1,12 @@
+RewriteEngine On
+
+## VAULT
+# allow error pages to display
+# RewriteCond %{REQUEST_URI} ^/(.*?)\.html$
+# RewriteRule ^ /%1.html [L]
+#if the file does not exist and begins with @ rewrite to pass id to php file
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+# path to decrypt.php
+RewriteRule ^@([^/]+)/? decrypt.php?param=$1 [L,QSA]
